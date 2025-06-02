@@ -1,7 +1,13 @@
-.reommendation-main {
+.recommended-flex {
+  display: flex;
   margin-left: 20rem;
-  font-family: sans-serif;
-  font-size: 14px;
+}
+
+.recommended-title {
+  margin-left: 20rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 20px;
 }
 
 .recommendation-btns {

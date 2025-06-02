@@ -9,9 +9,9 @@ const Navigation = () => {
       <input type="text" placeholder="Search For Your Shoe"/>
 
       <section className="content">
-        <FaUser className="content-icon"/>
-        <FaShoppingCart className="content-icon"/>
-        <FaHeart className="content-icon"/>
+        <FaUser className="nav-icons"/>
+        <FaShoppingCart className="nav-icons"/>
+        <FaHeart className="nav-icons"/>
       </section>
     </nav>
   );
