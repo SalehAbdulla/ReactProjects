@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.main-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20rem;
+}
+
+.user-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-contaienr {
+  margin-top: 1rem;
+}
+
+.login-btn-div {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+.login-btn {
+  padding: 5px 8px;
+  border: none;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 13px;
+  cursor: pointer;
+}
+
+
+input {
+  padding: 5px 8px;
+  border: none;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 13px;
+}
+
+.user-contaienr h5 {
+  margin-bottom: 8px;
+}

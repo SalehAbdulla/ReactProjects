@@ -1,9 +1,9 @@
-import ToDoList from "./component/ToDoList"
+import AvoidState from "./UseRefMoreCases/AvoidState"
 
 const App = () => {
   return (
     <div>
-      <ToDoList />
+      <AvoidState />
     </div>
   )
 }

@@ -1,24 +1,50 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const UseRefDemo = () => {
+  const inputReference = useRef<HTMLInputElement>(null);
+  const buttonReference = useRef<HTMLButtonElement>(null);
+  const divReference = useRef<HTMLDivElement>(null);
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const inputRef = useRef<HTMLInputElement>(null);
-  const btnRef = useRef<HTMLButtonElement>(null);
+  console.log(inputReference.current);
 
-  const focusInput = () =>{
-    console.log(inputRef.current);
-    (inputRef.current as HTMLInputElement).focus();
-    (btnRef.current as HTMLButtonElement).style.backgroundColor = "teal";
-    
-  }
+  const handleFocus = () => {
+    if (isDarkMode) {
+      (inputReference.current as HTMLInputElement).focus();
+      (buttonReference.current as HTMLButtonElement).style.backgroundColor =
+        "black";
+      (buttonReference.current as HTMLButtonElement).style.color = "white";
+      (divReference.current as HTMLDivElement).style.backgroundColor = "black";
+    } else {
+      (inputReference.current as HTMLInputElement).focus();
+      (buttonReference.current as HTMLButtonElement).style.backgroundColor =
+        "white";
+      (buttonReference.current as HTMLButtonElement).style.color = "black";
+      (divReference.current as HTMLDivElement).style.backgroundColor = "white";
+    }
+  };
+
+  useEffect(() => {
+    handleFocus();
+  }, [isDarkMode]);
 
   return (
-    <div>
-      <input type="text" ref={inputRef}/>
-      <button onClick={focusInput} ref={btnRef} >Focus</button>
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      ref={divReference}
+    >
+      <input type="text" ref={inputReference} />
+      <button onClick={() => setIsDarkMode(!isDarkMode)} ref={buttonReference}>
+        {isDarkMode ? "WhitekMode" : "DarkMode"}
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default UseRefDemo
+export default UseRefDemo;
