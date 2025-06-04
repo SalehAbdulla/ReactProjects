@@ -1,42 +1,51 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-type Product = {
-  category: string;
-}
+type Product = {category: string;}
 
-type FetchResponeType = {
+type FetchResponseType = {
   products: Product[];
 }
 
 
 const SideBar = () => {
-
+  // Categories data is set by an API
   const [categories, setCategories] = useState<string[]>([]);
-  const [keywords] = useState<string[]>([]);
+  // We don't need setFunction here
+  const [keywords] = useState<string[]>([
+    "apple",
+    "watch",
+    "Fashion",
+    "trend",
+    "shoes",
+    "shirt",
+  ]);
 
-  useEffect(()=>{
-    const fetchCategories = async () => {
+  useEffect(()=> {
+
+    const fetchData = async ()=>{
+
       try {
         const response = await fetch("https://dummyjson.com/products");
-        const data: FetchResponeType = await response.json();
-        const onlyUniqueCategory = Array.from(new Set(data.products.map(product => product.category)));
-        console.log(onlyUniqueCategory);
-        setCategories(onlyUniqueCategory);
-      } catch (error) { 
-          console.log("Error Fetching product", error);
+        const data:FetchResponseType = await response.json();
+        const uniqueCategory = Array.from(new Set(data.products.map((product) => product.category)));
+        setCategories(uniqueCategory);
+        console.log(uniqueCategory);
+      } catch (error) {
+        console.log("Error Fetching Product", error);
       }
     }
-    fetchCategories();
-  },[])
+
+    fetchData();
+
+  }, []);
 
 
-  return (
-    <div className="w-64 p-5 h-screen">
-      <h1 className=" text-2xl font-bold mb-10 mt-4">
-        React Store
-      </h1>
-    </div>
-  )
-}
 
-export default SideBar
+  return <div className="w-64 h-screen p-5">
+    <h1 className="font-bold text-2xl mt-4 mb-10">
+      React Store
+    </h1>
+  </div>;
+};
+
+export default SideBar;
