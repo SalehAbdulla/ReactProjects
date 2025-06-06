@@ -9,6 +9,7 @@ type FetchResponseType = {
 const SideBar = () => {
   // Categories data is set by an API
   const [categories, setCategories] = useState<string[]>([]);
+  
   // We don't need setFunction here
   const [keywords] = useState<string[]>([
     "apple",
