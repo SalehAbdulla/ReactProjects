@@ -3,6 +3,7 @@ import Counter from "./components/Counter";
 import CounterWithReducer from "./components/CounterWithReducer";
 import EventHandling from "./components/EventHandling";
 import FocusInput from "./components/FocusInput";
+import UseEffectComponent from "./components/UseEffectComponent";
 
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
       <Counter />
       <hr />
       <CounterWithReducer />
+      <hr />
+      <UseEffectComponent/>
     </div>
   );
 };

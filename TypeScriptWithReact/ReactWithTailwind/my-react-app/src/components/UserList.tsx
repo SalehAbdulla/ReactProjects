@@ -19,7 +19,7 @@ const UserList = () => {
         const resposne = await fetch(
           "https://jsonplaceholder.typicode.com/users"
         );
-        if (!Response.ok) throw new Error("Response was not ok!");
+        if (!Response) throw new Error("Response was not ok!");
 
         const result = await resposne.json();
         setUsers(result);
@@ -47,7 +47,7 @@ const UserList = () => {
           <th className="pr-2">phone</th>
         </tr>
       </thead>
-      
+
       <tbody className="">
         {users.map((user, index) => (
           <tr key={index}>

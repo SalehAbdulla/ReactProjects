@@ -9,6 +9,48 @@
   </head>
   <body class="p-20">
     <!-- https://tailwindcss.com/docs/position -->
+
+    <h1 class="mb-3">Position</h1>
+
+    <div class="relative h-40 w-1/2 bg-green-200">
+      <p>relative</p>
+      <div class="absolute left-0 top-0 bg-teal-500 p-4">
+        <p>Absolute</p>
+      </div>
+    </div>
+
+    <div class="relative h-40 w-1/2 bg-green-200 mt-5">
+      <p>relative</p>
+      <div class="absolute bottom-0 right-0 bg-teal-500 p-4">
+        <p>Absolute</p>
+      </div>
+    </div>
+
+    <div class="relative h-40 w-1/2 bg-green-200 mt-5">
+      <p>relative</p>
+      <div class="absolute bottom-0 left-0 bg-teal-500 p-4">
+        <p>Absolute</p>
+      </div>
+    </div>
+
+    <div class="relative h-40 w-1/2 bg-green-200 mt-5">
+      <p>relative</p>
+      <div class="absolute top-0 right-0 bg-teal-500 p-4">
+        <p>Absolute</p>
+      </div>
+    </div>
+
     <!-- https://tailwindcss.com/docs/display -->
+
+    <h1 class="my-7">Display</h1>
+    <div class="bg-indigo-100 p-10 mb-10 w-[600px]">
+      <span class="inline"
+        >This is a display inline, and will wrap normally</span
+      >
+      <span class="inline-block w-[100px] h-[200px] bg-orange-200"
+        >This is a display inline-block, will wrap normally, and we can add
+        width, height, margin, and padding values to it.</span
+      >
+    </div>
   </body>
 </html>

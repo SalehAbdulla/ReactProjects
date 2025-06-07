@@ -1,16 +1,9 @@
-import Button from "./components/Button";
-import Modal from "./components/Modal";
-import RadixComponent from "./components/RadixComponent";
-import ShadcnButton from "./components/ShadcnButton";
+import SimpleForm from "./components/SimpleForm";
 
 const App = () => {
   return (
     <div>
-      <Button />
-      <Modal />
-      <RadixComponent />
-      <hr />
-      <ShadcnButton />
+      <SimpleForm/>
     </div>
   );
 };
