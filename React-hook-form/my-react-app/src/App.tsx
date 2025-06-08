@@ -1,9 +1,10 @@
-import SimpleForm from "./components/SimpleForm"
+import AdvanceForm from "./components/AdvanceForm/AdvanceForm";
 
 const App = () => {
   return (
     <div>
-      <SimpleForm /> 
+      {/* <SimpleForm />  */}
+      <AdvanceForm />
     </div>
   )
 }

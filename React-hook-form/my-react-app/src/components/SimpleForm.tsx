@@ -49,9 +49,9 @@ const SimpleForm = () => {
           )}  
         
           <label htmlFor="password">Password: </label>
-          <input type="password" placeholder="Enter Your Password" {...register("password", {required: "Password is Required"})} />
+          <input type="password" placeholder="Enter Your Password" {...register("password", {required: "Password Field is required",minLength: {value: 8, message: "password must be at least 8 characters"}})} />
           {errors.password && <p style={{color: "red"}} >{errors.password.message}</p>}
-          <button type="submit">{isSubmitting ? "Loading ..." : "Submit"}</button>
+          <button type="submit" disabled={isSubmitting}>{isSubmitting ? "Loading ..." : "Submit"}</button>
         </div>
       </form>
     </section>
