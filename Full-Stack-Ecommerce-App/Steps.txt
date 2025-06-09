@@ -1,11 +1,12 @@
 1) save the file under frontend directory
-2) install react-router-dom react-toastify
+2) npm install react-router-dom react-toastify
+
        What is a "toast notification"?
             1) Message that pops up in the corner of the screen and disappears automatically after a few seconds.
 3) Clear the directory
 4) Add the assets folder
-5) Install Tailwind -- Solve 3 tailwing projects
-  missed step here  -- Wrap <App/> with BrowserRouter in main.tsx
+5) Install Tailwind -- Solve 3 tailwind projects
+  missed step here  -- Wrap up the <App /> with BrowserRouter in main.tsx
 6) Create 3 directories --> pages, context, components
           1) pages/ Create The following 9 Pages components
                1) Home
