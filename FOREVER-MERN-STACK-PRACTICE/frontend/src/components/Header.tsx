@@ -1,63 +1,144 @@
-import { assets } from "../assets/frontend_assets/assets";
 import { NavLink } from "react-router-dom";
+import { assets } from "../assets/frontend_assets/assets";
+import { useState } from "react";
 
-const Header = () => {
-  return (
-    <header className="flex justify-between items-center m-5 border-b pb-3 border-[#cdccce]">
-      <NavLink to="/" className="left">
-        <img src={assets.logo} alt="logo" className="w-36" />
-      </NavLink>
+const Navbar = () => {
 
-      <div className="center">
-        <ul className="lg-flex md:flex gap-5 font-medium">
-          <NavLink to="/" className="flex flex-col items-center ">
-            <p>HOME</p>
-            <hr className="w-2/4 h-[1.5px] hidden" />
-          </NavLink>
+	const [visible, setVisible] = useState<boolean>(false);
 
-          <NavLink to="/COLLECTION" className="flex flex-col items-center ">
-            <p>COLLECTION</p>
-            <hr className="w-2/4 h-[1.5px] hidden" />
-          </NavLink>
+	return (
+		<header className="flex justify-between mt-3 items-center py-4">
+			<div>
+				<NavLink to="/" className="flex flex-col items-center">
+					<img src={assets.logo} alt="logo" className="w-36" />
+				</NavLink>
+			</div>
 
-          <NavLink to="/ABOUT" className="flex flex-col items-center ">
-            <p>ABOUT</p>
-            <hr className="w-2/4 h-[1.5px] hidden" />
-          </NavLink>
+			<div className="hidden md:flex gap-4 font-medium">
+				<NavLink to="/" className="flex flex-col gap-1 items-center">
+					<p>HOME</p>
+					<hr className="hidden w-2/4" />
+				</NavLink>
 
-          <NavLink to="/CONTACT" className="flex flex-col items-center">
-            <p>CONTACT</p>
-            <hr className="w-2/4 h-[1.5px] hidden" />
-          </NavLink>
-        </ul>
-      </div>
+				<NavLink
+					to="/COLLECTION"
+					className="flex flex-col gap-1 items-center"
+				>
+					<p>COLLECTION</p>
+					<hr className="hidden w-2/4" />
+				</NavLink>
 
-      <div className="flex items-center">
-        <img
-          src={assets.search_icon}
-          className="w-5 cursor-pointer"
-          alt="search icon"
-        />
+				<NavLink
+					to="/ABOUT"
+					className="flex flex-col gap-1 items-center"
+				>
+					<p>ABOUT</p>
+					<hr className="hidden w-2/4" />
+				</NavLink>
 
-        <div className="group relative">
-          <img
-            src={assets.profile_icon}
-            className="w-5 ml-5 cursor-pointer"
-            alt="profile icon"
-          />
+				<NavLink
+					to="/CONTACT"
+					className="flex flex-col gap-1 items-center"
+				>
+					<p>CONTACT</p>
+					<hr className="hidden w-2/4" />
+				</NavLink>
+			</div>
 
-          <div className="hidden group-hover:block absolute right-0 bg-slate-100 text-gray-700 rounded-xl">
-            <div className="flex flex-col gap-1 w-36 py-3 px-5">
-              <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p className="cursor-pointer hover:text-black">Orders</p>
-              <p className="cursor-pointer hover:text-black">Logout</p>
-            </div>
-          </div>
+			<div className="flex gap-4">
+				<img
+					src={assets.search_icon}
+					alt="search icon"
+					className="w-5 cursor-pointer"
+				/>
+				<div className="group relative">
+					<img
+						src={assets.profile_icon}
+						alt="profile icon"
+						className="w-5 cursor-pointer"
+					/>
+					<div className="hidden group-hover:flex absolute right-0 rounded-xl w-36 h-27 bg-slate-200 text-gray-700 flex-col px-4 pt-2">
+						<p className="mt-1 hover:text-black cursor-pointer">
+							My Profile
+						</p>
+						<p className="mt-1 hover:text-black cursor-pointer">
+							Orders
+						</p>
+						<p className="mt-1 hover:text-black cursor-pointer">
+							Log out
+						</p>
+					</div>
+				</div>
+				<div className="relative">
+					<img
+						src={assets.cart_icon}
+						alt="cart icon"
+						className="w-5 cursor-pointer"
+					/>
+					<div className="absolute cursor-pointer aspect-square bg-black w-4 h-4 text-[9px] p-2.4 rounded-full text-white flex items-center justify-center leading-4 left-2 top-3">
+						10
+					</div>
+				</div>
 
-        </div>
-      </div>
-    </header>
-  );
+				<img
+					onClick={() => setVisible(!visible)}
+					src={assets.menu_icon}
+					className="lg:hidden md:hidden sm:flex w-5 cursor-pointer"
+					alt="menu_icon"
+				/>
+				<div
+					className={`absolute top-0 right-0 bottom-0 bg-white overflow-hidden ${
+						visible ? "w-full" : "w-0"
+					} transition-all`}
+				>
+					<div
+						onClick={() => setVisible(!visible)}
+						className="flex gap-1 items-center cursor-pointer p-2 m-4"
+					>
+						<img
+							src={assets.dropdown_icon}
+							alt="dropdown icon"
+							className="w-3 rotate-180 mr-2"
+						/>
+						<p className="font-medium">Back</p>
+					</div>
+					<div className="flex flex-col gap-4 m-4 font-medium">
+						<NavLink
+							onClick={()=> setVisible(!visible)}
+							to="/"
+							className="border p-3 rounded-xl hover:bg-amber-100"
+						>
+							<p>HOME</p>
+						</NavLink>
+
+						<NavLink
+							onClick={()=> setVisible(!visible)}
+							to="/"
+							className="border p-3 rounded-xl hover:bg-amber-100"
+						>
+							<p>COLLECTION</p>
+						</NavLink>
+
+						<NavLink
+							onClick={()=> setVisible(!visible)}
+							to="/"
+							className="border p-3 rounded-xl hover:bg-amber-100"
+						>
+							<p>ABOUT</p>
+						</NavLink>
+
+						<NavLink
+							onClick={()=> setVisible(!visible)}
+							to="/"
+							className="border p-3 rounded-xl hover:bg-amber-100"
+						>
+							<p>CONTACT</p>
+						</NavLink>
+					</div>
+				</div>
+			</div>
+		</header>
+	);
 };
 
-export default Header;
+export default Navbar;
