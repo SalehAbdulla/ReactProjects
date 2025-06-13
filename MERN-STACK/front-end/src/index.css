@@ -2,7 +2,16 @@
 @import "tailwindcss";
 
 a.active hr {
-  display: block;
+  display:block;
+}
+
+.side-menu a.active {
+  background: #c29b01;
+  color: white;
+}
+
+* {
+  font-family: Outfit;
 }
 
 .prata-regular {

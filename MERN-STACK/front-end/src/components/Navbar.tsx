@@ -3,137 +3,79 @@ import { assets } from "../assets/frontend_assets/assets";
 import { useState } from "react";
 
 const Navbar = () => {
-
 	const [visible, setVisible] = useState<boolean>(false);
 
 	return (
-		<header className="flex justify-between mt-3 items-center py-4">
+		<header className="flex justify-between p-5">
 			<div>
-				<NavLink to="/" className="flex flex-col items-center">
+				<NavLink to="/">
 					<img src={assets.logo} alt="logo" className="w-36" />
 				</NavLink>
 			</div>
 
-			<div className="hidden sm:flex gap-4 font-medium">
+			<div className="sm:flex sm:text-sm md:text-[16px] gap-4 font-medium hidden items-center justify-center">
 				<NavLink to="/" className="flex flex-col gap-1 items-center">
 					<p>HOME</p>
-					<hr className="hidden w-2/4" />
+					<hr className="w-2/4 hidden" />
 				</NavLink>
 
-				<NavLink
-					to="/COLLECTION"
-					className="flex flex-col gap-1 items-center"
-				>
+				<NavLink to="/COLLECTION" className="flex flex-col gap-1 items-center">
 					<p>COLLECTION</p>
-					<hr className="hidden w-2/4" />
+					<hr className="w-2/4 hidden" />
 				</NavLink>
 
-				<NavLink
-					to="/ABOUT"
-					className="flex flex-col gap-1 items-center"
-				>
+				<NavLink to="/ABOUT" className="flex flex-col gap-1 items-center">
 					<p>ABOUT</p>
-					<hr className="hidden w-2/4" />
+					<hr className="w-2/4 hidden" />
 				</NavLink>
 
-				<NavLink
-					to="/CONTACT"
-					className="flex flex-col gap-1 items-center"
-				>
+				<NavLink to="/CONTACT" className="flex flex-col gap-1 items-center">
 					<p>CONTACT</p>
-					<hr className="hidden w-2/4" />
+					<hr className="w-2/4 hidden" />
 				</NavLink>
 			</div>
 
-			<div className="flex gap-4">
-				<img
-					src={assets.search_icon}
-					alt="search icon"
-					className="w-5 cursor-pointer"
-				/>
+			<div className="flex gap-4 items-center justify-center">
+				<img src={assets.search_icon} alt="search icon" className="w-5  cursor-pointer" />
 				<div className="group relative">
 					<img
 						src={assets.profile_icon}
-						alt="profile icon"
-						className="w-5 cursor-pointer"
+						alt="search icon"
+						className="w-5  cursor-pointer"
 					/>
-					<div className="hidden group-hover:flex absolute right-0 rounded-xl w-36 h-27 bg-slate-200 text-gray-700 flex-col px-4 pt-2">
-						<p className="mt-1 hover:text-black cursor-pointer">
-							My Profile
-						</p>
-						<p className="mt-1 hover:text-black cursor-pointer">
-							Orders
-						</p>
-						<p className="mt-1 hover:text-black cursor-pointer">
-							Log out
-						</p>
+					<div className="absolute hidden group-hover:flex flex-col right-0 bg-slate-50 text-gray-500 w-36 px-3 py-3 rounded-2xl ">
+						<p className="cursor-pointer hover:text-black">My Profile</p>
+						<p className="cursor-pointer hover:text-black">Orders</p>
+						<p className="cursor-pointer hover:text-black">Logout</p>
 					</div>
 				</div>
 				<div className="relative">
-					<img
-						src={assets.cart_icon}
-						alt="cart icon"
-						className="w-5 cursor-pointer"
-					/>
-					<div className="absolute cursor-pointer aspect-square bg-black w-4 h-4 text-[9px] p-2.4 rounded-full text-white flex items-center justify-center leading-4 left-2 top-3">
-						10
+					<img src={assets.cart_icon} alt="search icon" className="w-5 cursor-pointer" />
+					<div className="absolute bg-black rounded-full w-4 h-4 right-[-5px] bottom-[-7px] text-white text-[9px] flex items-center justify-center p-2 leading-0">
+						<p>10</p>
 					</div>
 				</div>
 
-				<img
-					onClick={() => setVisible(!visible)}
-					src={assets.menu_icon}
-					className="sm:hidden w-5 cursor-pointer"
-					alt="menu_icon"
-				/>
-				<div
-					className={`absolute top-0 right-0 bottom-0 bg-white overflow-hidden ${
-						visible ? "w-full" : "w-0"
-					} transition-all`}
-				>
+				<div>
+					<img onClick={()=> setVisible(!visible)} src={assets.menu_icon} alt="menu icon" className="w-5 sm:hidden block cursor-pointer" />
 					<div
-						onClick={() => setVisible(!visible)}
-						className="flex gap-1 items-center cursor-pointer p-2 m-4"
+						className={`absolute right-0 top-0 bottom-0 overflow-hidden transition-all ${visible ? "w-full" : "w-0" } bg-white`}
 					>
-						<img
-							src={assets.dropdown_icon}
-							alt="dropdown icon"
-							className="w-3 rotate-180 mr-2"
-						/>
-						<p className="font-medium">Back</p>
-					</div>
-					<div className="flex flex-col gap-4 m-4 font-medium">
-						<NavLink
-							onClick={()=> setVisible(!visible)}
-							to="/"
-							className="border p-3 rounded-xl hover:bg-amber-100"
-						>
-							<p>HOME</p>
-						</NavLink>
+						<div onClick={()=> setVisible(!visible)} className="flex items-center font-semibold cursor-pointer">
+							<img
+								src={assets.dropdown_icon}
+								alt="dropdown icon"
+								className="flex m-5 rotate-180 w-4"
+							/>
+							<p>Back</p>
+						</div>
 
-						<NavLink
-							onClick={()=> setVisible(!visible)}
-							to="/"
-							className="border p-3 rounded-xl hover:bg-amber-100"
-						>
-							<p>COLLECTION</p>
-						</NavLink>
-
-						<NavLink
-							onClick={()=> setVisible(!visible)}
-							to="/"
-							className="border p-3 rounded-xl hover:bg-amber-100"
-						>
-							<p>ABOUT</p>
-						</NavLink>
-
-						<NavLink
-							onClick={()=> setVisible(!visible)}
-							to="/"
-							className="border p-3 rounded-xl hover:bg-amber-100"
-						>
-							<p>CONTACT</p>
-						</NavLink>
+						<div className="flex flex-col side-menu">
+							<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/">HOME</NavLink>
+							<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/COLLECTION">COLLECTION</NavLink>
+							<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/ABOUT">ABOUT</NavLink>
+							<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/CONTACT">CONTACT</NavLink>
+						</div>
 					</div>
 				</div>
 			</div>
