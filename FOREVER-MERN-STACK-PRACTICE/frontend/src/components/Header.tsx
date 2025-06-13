@@ -7,7 +7,7 @@ const Navbar = () => {
 	const [visible, setVisible] = useState<boolean>(false);
 
 	return (
-		<header className="flex justify-between mt-3 items-center py-4">
+		<header className="flex justify-between mt-3 items-center py-3">
 			<div>
 				<NavLink to="/" className="flex flex-col items-center">
 					<img src={assets.logo} alt="logo" className="w-36" />
@@ -102,39 +102,14 @@ const Navbar = () => {
 						/>
 						<p className="font-medium">Back</p>
 					</div>
-					<div className="flex flex-col gap-4 m-4 font-medium">
-						<NavLink
-							onClick={()=> setVisible(!visible)}
-							to="/"
-							className="border p-3 rounded-xl hover:bg-amber-100"
-						>
-							<p>HOME</p>
-						</NavLink>
 
-						<NavLink
-							onClick={()=> setVisible(!visible)}
-							to="/"
-							className="border p-3 rounded-xl hover:bg-amber-100"
-						>
-							<p>COLLECTION</p>
-						</NavLink>
-
-						<NavLink
-							onClick={()=> setVisible(!visible)}
-							to="/"
-							className="border p-3 rounded-xl hover:bg-amber-100"
-						>
-							<p>ABOUT</p>
-						</NavLink>
-
-						<NavLink
-							onClick={()=> setVisible(!visible)}
-							to="/"
-							className="border p-3 rounded-xl hover:bg-amber-100"
-						>
-							<p>CONTACT</p>
-						</NavLink>
+					<div className="flex flex-col side-menu">
+						<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/">HOME</NavLink>
+						<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/COLLECTION">COLLECTION</NavLink>
+						<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/ABOUT">ABOUT</NavLink>
+						<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/CONTACT">CONTACT</NavLink>
 					</div>
+
 				</div>
 			</div>
 		</header>
