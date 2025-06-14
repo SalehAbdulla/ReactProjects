@@ -36,7 +36,7 @@ const Footer = () => {
             
                 <div>
                     <hr className="mt-3 text-gray-400"/>
-                    <p className="py-5 text-sm text-center">{`Copyright ${new Date().getFullYear()}©️ FOREVER.COM - ALL Right Reserved.`}</p>
+                    <p className="py-5 text-sm text-center">{`Copyright ${new Date().getFullYear()}© FOREVER.COM - ALL Right Reserved.`}</p>
                 </div>
 		</footer>
 	);
