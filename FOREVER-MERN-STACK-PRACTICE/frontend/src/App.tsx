@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Orders from "./pages/Orders";
 import PlaceOrder from "./pages/PlaceOrder";
 import Product from "./pages/Product";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -27,6 +28,8 @@ const App = () => {
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/product" element={<Product />} />
       </Routes>
+
+      <Footer />
     </div>
   );
 };

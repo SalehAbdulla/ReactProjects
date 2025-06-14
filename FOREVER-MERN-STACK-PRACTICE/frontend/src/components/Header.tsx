@@ -5,6 +5,7 @@ import { useState } from "react";
 const Navbar = () => {
 
 	const [visible, setVisible] = useState<boolean>(false);
+	const [showProfileMenu, setShowProfileMenu] = useState<boolean>(false);
 
 	return (
 		<header className="flex justify-between mt-3 items-center py-3">
@@ -51,13 +52,15 @@ const Navbar = () => {
 					alt="search icon"
 					className="w-5 cursor-pointer"
 				/>
+				
 				<div className="group relative">
 					<img
+						onClick={()=> setShowProfileMenu(!showProfileMenu)}
 						src={assets.profile_icon}
 						alt="profile icon"
 						className="w-5 cursor-pointer"
 					/>
-					<div className="hidden group-hover:flex absolute right-0 rounded-xl w-36 h-27 bg-slate-200 text-gray-700 flex-col px-4 pt-2">
+					<div className={`${showProfileMenu ? "block" : "hidden"} group-hover:flex absolute right-0 rounded-xl w-36 h-27 bg-slate-100 text-gray-700 flex-col px-4 pt-2`}>
 						<p className="mt-1 hover:text-black cursor-pointer">
 							My Profile
 						</p>
