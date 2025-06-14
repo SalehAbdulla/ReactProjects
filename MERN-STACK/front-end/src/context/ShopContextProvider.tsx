@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react"
-import { ShopContext } from "./shopContext";
-import { type ShopContextType } from "./shopContext";
+import { ShopContext } from "./ShopContext";
+import { type ShopContextType } from "./ShopContext";
 import { products } from "../assets/frontend_assets/assets";
 
 type ShopContextProviderType = {
@@ -8,10 +8,10 @@ type ShopContextProviderType = {
 }
 
 export const ShopContextProvider = ({children}: ShopContextProviderType) => {
-    const currancy = "BHD";
+    const currency = "BHD";
     const deliveryFees = 2;
     const [username, setUsername] = useState("SALEH_ABDULLA");
-    const values:ShopContextType = {username, setUsername, products, currancy, deliveryFees};
+    const values:ShopContextType = {username, setUsername, products, currency, deliveryFees};
 
     return (
         <ShopContext value={values}>
@@ -19,4 +19,3 @@ export const ShopContextProvider = ({children}: ShopContextProviderType) => {
         </ShopContext>
     )
 }
-

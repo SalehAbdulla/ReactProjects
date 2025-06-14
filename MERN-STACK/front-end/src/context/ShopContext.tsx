@@ -17,7 +17,7 @@ export type ShopContextType = {
 	username: string;
 	setUsername: (username: string) => void;
     products: ProductType[];
-    currancy: string;
+    currency: string;
     deliveryFees: number;
 };
 

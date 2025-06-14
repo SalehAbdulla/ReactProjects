@@ -3,10 +3,12 @@ import { assets } from "../assets/frontend_assets/assets";
 import { useState } from "react";
 
 const Navbar = () => {
+
 	const [visible, setVisible] = useState<boolean>(false);
 
 	return (
 		<header className="flex justify-between p-5">
+
 			<div>
 				<NavLink to="/">
 					<img src={assets.logo} alt="logo" className="w-36" />
@@ -79,6 +81,7 @@ const Navbar = () => {
 					</div>
 				</div>
 			</div>
+			
 		</header>
 	);
 };
