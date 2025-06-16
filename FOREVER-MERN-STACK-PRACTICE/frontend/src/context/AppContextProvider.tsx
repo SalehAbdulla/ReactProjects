@@ -16,7 +16,7 @@ export const AppContextProvider = ({children}: AppContextProviderType) => {
 
   return (
     <AppContext.Provider value={values}>
-        {children}
+      {children}
     </AppContext.Provider>
   )
 }
