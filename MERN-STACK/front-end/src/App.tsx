@@ -11,7 +11,6 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-
 {/*Practice */}
 const App = () => {
   return (
@@ -34,5 +33,6 @@ const App = () => {
     </div>
   );
 };
+
 
 export default App;
