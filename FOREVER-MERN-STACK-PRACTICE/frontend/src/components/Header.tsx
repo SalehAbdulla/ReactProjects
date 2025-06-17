@@ -106,7 +106,7 @@ const Navbar = () => {
 						<p className="font-medium">Back</p>
 					</div>
 
-					<div className="flex flex-col side-menu">
+					<div className="flex flex-col side-menu relative z-10">
 						<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/">HOME</NavLink>
 						<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/COLLECTION">COLLECTION</NavLink>
 						<NavLink onClick={()=> setVisible(!visible)} className="border border-gray-400 p-4 m-1 mx-4 rounded-xl flex hover:bg-amber-100 " to="/ABOUT">ABOUT</NavLink>
