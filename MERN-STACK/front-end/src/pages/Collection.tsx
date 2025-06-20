@@ -6,10 +6,11 @@ import { UseShopContext } from '../context/UseShopContext'
 import type { ProductType } from '../context/ShopContext'
 
 const Collection = () => {
-  const { products } = UseShopContext()
+  
+  const { products, search, showSearch } = UseShopContext()
   const [showFilters, setShowFilters] = useState<boolean>(true)
   const [filterProducts, setFilterProducts] = useState<ProductType[]>([])
-  const [priceFilter, setPriceFilter] = useState<string>("relavent");
+  const [priceFilter, setPriceFilter] = useState<string>("relavent")
   {/* */}
 
 
@@ -47,6 +48,12 @@ const Collection = () => {
 
   const applyFilter = () => {
     let productCopy = products.slice()
+
+    if (showSearch && search) {
+      productCopy = productCopy.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
+    }
+
+
     if (categories.length > 0) {
       productCopy = productCopy.filter((item) =>
         categories.includes(item.category)
@@ -63,7 +70,7 @@ const Collection = () => {
 
   useEffect(() => {
     applyFilter()
-  }, [categories, types])
+  }, [categories, types, search, showSearch])
 
   // Sort By Price
 
