@@ -19,6 +19,12 @@ export type ShopContextType = {
     products: ProductType[];
     currency: string;
     deliveryFees: number;
+		
+		search: string;
+		setSearch: (search:string) => void;
+
+		showSearch: boolean;
+		setShowSearch: (showSearch: boolean) => void;
 };
 
 export const ShopContext = createContext<ShopContextType | undefined>(undefined);

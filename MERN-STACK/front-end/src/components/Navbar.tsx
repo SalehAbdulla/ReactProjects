@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { assets } from "../assets/frontend_assets/assets";
 import { useState } from "react";
+import { UseShopContext } from "../context/UseShopContext";
 
 const Navbar = () => {
 
 	const [visible, setVisible] = useState<boolean>(false);
+	const {showSearch,setShowSearch} = UseShopContext();
 
 	return (
 		<header className="flex justify-between p-5">
@@ -38,7 +40,7 @@ const Navbar = () => {
 			</div>
 
 			<div className="flex gap-4 items-center justify-center">
-				<img src={assets.search_icon} alt="search icon" className="w-5  cursor-pointer" />
+				<img onClick={()=> setShowSearch(!showSearch)} src={assets.search_icon} alt="search icon" className="w-5  cursor-pointer" />
 				<div className="group relative">
 					<img
 						src={assets.profile_icon}

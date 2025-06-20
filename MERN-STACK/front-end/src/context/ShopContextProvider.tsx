@@ -11,7 +11,13 @@ export const ShopContextProvider = ({children}: ShopContextProviderType) => {
     const currency = "BHD";
     const deliveryFees = 2;
     const [username, setUsername] = useState("SALEH_ABDULLA");
-    const values:ShopContextType = {username, setUsername, products, currency, deliveryFees};
+
+
+    const [search, setSearch] = useState<string>("");
+    const [showSearch, setShowSearch] = useState<boolean>(true);
+    
+    const values:ShopContextType = {username, setUsername, products, currency, deliveryFees, search, setSearch, showSearch, setShowSearch};
+
 
     return (
         <ShopContext value={values}>

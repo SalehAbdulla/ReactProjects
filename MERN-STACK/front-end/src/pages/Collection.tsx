@@ -9,7 +9,9 @@ const Collection = () => {
   const { products } = UseShopContext()
   const [showFilters, setShowFilters] = useState<boolean>(true)
   const [filterProducts, setFilterProducts] = useState<ProductType[]>([])
-  const [priceFilter, setPriceFilter] = useState("relavent");
+  const [priceFilter, setPriceFilter] = useState<string>("relavent");
+  {/* */}
+
 
   useEffect(() => {
     setFilterProducts(products)
