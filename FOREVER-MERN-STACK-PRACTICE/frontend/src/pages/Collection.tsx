@@ -7,7 +7,7 @@ import type { Products } from "../context/AppContext";
 
 const Collection = () => {
 
-  const { products } = UseAppContext();
+  const { products, search, showSearch } = UseAppContext();
   const [showFilter, setShowFilter] = useState<boolean>(true);
   const [filteredProducts, setFilteredProducts] = useState<Products[]>([]);
 
@@ -37,6 +37,10 @@ const Collection = () => {
   const applyFilter = () => {
     let copiedProducts = products.slice();  // Always Start with the original Products
 
+    if (showSearch && search) {
+      copiedProducts = copiedProducts.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
+    }
+
     if (getUserCategorySelection.length > 0) {
       copiedProducts = copiedProducts.filter(item => getUserCategorySelection.includes(item.category));
     }
@@ -51,7 +55,7 @@ const Collection = () => {
 
   useEffect(() => {
     applyFilter();
-  }, [getUserCategorySelection, getUserSubCategorySelection])
+  }, [getUserCategorySelection, getUserSubCategorySelection, showSearch, search])
 
 
   {/* Sort By Price */ }
