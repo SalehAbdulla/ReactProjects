@@ -19,6 +19,12 @@ export type AppContextType = {
     currency: string;
     delivery_fee: number;
     products: Products[];
+
+    showSearch: boolean;
+    setShowSearch: (showSearch: boolean) => void;
+    search: string;
+    setSearch: (search:string) => void;
+
 }
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);

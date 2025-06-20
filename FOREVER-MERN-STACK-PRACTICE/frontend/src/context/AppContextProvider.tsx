@@ -12,7 +12,11 @@ export const AppContextProvider = ({children}: AppContextProviderType) => {
     const currency = "BHD";
     const delivery_fee = 2;
 
-    const values: AppContextType = {username, setUserName, currency, delivery_fee, products};
+    {/* Search States */}
+    const [showSearch, setShowSearch] = useState<boolean>(false);
+    const [search, setSearch] = useState<string>("");
+
+    const values: AppContextType = {username, setUserName, currency, delivery_fee, products, showSearch, setShowSearch, search, setSearch};
 
   return (
     <AppContext.Provider value={values}>

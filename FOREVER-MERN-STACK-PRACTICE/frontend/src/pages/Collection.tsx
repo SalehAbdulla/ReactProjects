@@ -83,13 +83,6 @@ const Collection = () => {
   }, [sortbyPrice])
 
 
-
-
-
-
-
-
-
   return (
     <section className="flex justify-center gap-8 sm:flex-row flex-col">
 
