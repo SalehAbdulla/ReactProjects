@@ -12,7 +12,7 @@ const ProductCard = ({ id, name, image, price }: ProductCardType) => {
 	const { currency } = UseAppContext();
 
 	return (
-		<Link to={`/product/${id}`}>
+		<Link onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} to={`/product/${id}`}>
 			<div className="flex flex-col gap-2 mt-5">
 				<div className="overflow-hidden">
 					<img
