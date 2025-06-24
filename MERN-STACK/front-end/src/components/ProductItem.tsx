@@ -12,7 +12,7 @@ const ProductItem = ({ id, image, name, price }: ProductItemType) => {
 	
     const {currency} = UseShopContext();
 
-    return <Link onClick={window.scroll({top: 0, behavior: "smooth"})} to={`/product/${id}`} className="text-gray-700 cursor-pointer">
+    return <Link onClick={()=> window.scroll({top: 0, behavior: "smooth"})} to={`/product/${id}`} className="text-gray-700 cursor-pointer">
 		<div className="overflow-hidden">
 			<img src={image[0]} alt={`Product Image with Id ${id}`} className="hover:scale-110 transition ease-in-out"/>
 		</div>
