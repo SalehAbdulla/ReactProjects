@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { UseShopContext } from "../context/UseShopContext"
+import { useEffect, useState } from "react"
 import type { ProductType } from "../context/ShopContext";
-import { useEffect, useState } from "react";
 import { assets } from "../assets/frontend_assets/assets";
+import RelatedProducts from "../components/RelatedProducts";
 
 const Product = () => {
 
@@ -13,10 +14,10 @@ const Product = () => {
   const [size, setSize] = useState('');
 
   const fetchData = async () => {
-    const product = products.find(item => item._id === productId);
-    if (product) {
-      setProductData(product);
-      setMainImage(product.image[0]);
+    const getProduct = products.find((item) => item._id === productId);
+    if (getProduct) {
+      setProductData(getProduct);
+      setMainImage(getProduct.image[0]);
     }
   }
 
@@ -26,71 +27,112 @@ const Product = () => {
 
 
   return productData ? (
-    <div className="border-gray-400 pt-4 transition-opacity opacity-100 ease-in duration-500"> {/* Theme div */}
+    <div className="transition-opacity duration-500 opacity-100 ease-in"> {/* Theme Div */}
 
-      <main className="flex flex-col sm:flex-row gap-12"> {/* Outer Div */}
-        <section className="flex-1 flex sm:flex-row flex-col-reverse gap-3"> {/* Inner div */}
+      <main className="flex sm:flex-row flex-col gap-12"> {/* Outer Box */}
 
-          <section className="flex sm:flex-col flex-row gap-3 overflow-x-auto sm:overflow-y-scroll sm:w-[18.7%] w-full">
+        <section className="flex-1 flex sm:flex-row flex-col-reverse gap-3"> {/* Inner Box */}
+
+          <div className="flex sm:flex-col flex-row sm:w-[18.7%] w-full gap-2 sm:overflow-y-scroll">
             {
-              productData.image.map((item, index) => (
-                <img onClick={()=> setMainImage(item)} key={index} src={item} alt="item" className="w-[24%] sm:w-full cursor-pointer flex-shrink-1" />
+              productData?.image.map((item, index) => (
+                <img onClick={() => setMainImage(item)} key={index} src={item} alt="" className="cursor-pointer w-[24%] sm:w-full" />
               ))
             }
-          </section>
-          <section className="w-full sm:w-[80%]">
+          </div>
+
+          <div className="w-full sm:w-[80%]">
             <img src={mainImage} alt="" className="w-full h-auto" />
-          </section>
+          </div>
+
         </section>
 
 
+
         <section className="flex-1">
+
           <h1 className="font-medium text-2xl">{productData.name}</h1>
-          <div className="inline-flex mt-2">
-            <img src={assets.star_icon} alt="" className="w-3" />
-            <img src={assets.star_icon} alt="" className="w-3" />
-            <img src={assets.star_icon} alt="" className="w-3" />
-            <img src={assets.star_icon} alt="" className="w-3" />
-            <img src={assets.star_dull_icon} alt="" className="w-3" />
+
+          <div className="inline-flex mt-3 gap-0.5">
+            <img src={assets.star_icon} alt="" className="w-3.5" />
+            <img src={assets.star_icon} alt="" className="w-3.5" />
+            <img src={assets.star_icon} alt="" className="w-3.5" />
+            <img src={assets.star_icon} alt="" className="w-3.5" />
+            <img src={assets.star_dull_icon} alt="" className="w-3.5" />
           </div>
-          
-          <div className="inline-flex ml-3">
-            <p>(122)</p>
+
+          <div className="inline-flex ml-1">
+            <p className="">(122)</p>
           </div>
-          
+
+
+
           <div>
-            <p className="font-medium" >{currency} {productData.price}</p>
+            <p className="font-medium my-5 text-xl">{currency} {productData.price}</p>
           </div>
 
-          <div className="mt-5">
-            <p className="text-gray-400 md:w-4/5">{productData.description}</p>
+          <div className="my-5">
+            <p className="text-sm md:w-3/4 text-gray-500">{productData.description}</p>
           </div>
 
-          <div className="mt-5">
 
-            <p>Select Size </p>
-            <div className="flex gap-3">
+          <div>
+            <p>Select Size</p>
+            <div className="flex gap-3 mt-2 ">
               {
                 productData.sizes.map((item, index) => (
-                  <button onClick={() => setSize(item)} className={`border-1 bg-gray-100 px-4 py-2 mt-2 border-gray-500 ${size === item ? "border-orange-500" : ""}`} key={index}>{item}</button>
+                  <button onClick={() => setSize(item)} key={index} className={`border px-3 py-2 border-gray-400 cursor-pointer ${item === size ? "border-orange-500" : ""} `}>{item}</button>
                 ))
               }
             </div>
-
           </div>
 
 
-              <div className="mt-5">
-                <button className="bg-black text-white px-8 py-3 active:bg-gray-700">ADD TO CART</button>
-              </div>
+          <div className="mt-5">
+            <button className="bg-black text-white px-5 py-4 hover:bg-gray-700 cursor-pointer">ADD TO CART</button>
 
-              <hr className="border-t-1 w-3/4 mt-5 border-gray-300" />
+            <hr className="mt-5 text-gray-300 w-3/4" />
+          </div>
+
+          <div className="mt-5">
+            <p className="text-sm text-gray-500">100% Original product.</p>
+            <p className="text-sm text-gray-500">Cash on delivery is available on this product.</p>
+            <p className="text-sm text-gray-500">Easy return and exchange policy within 7 days.</p>
+          </div>
+
+
 
 
         </section>
 
 
       </main>
+
+
+      {/* Description Section */}
+
+      <section className="my-30">
+        <div className="flex">
+          <p className="px-6 py-4 border-1 border-gray-200 text-xs font-medium">Description</p>
+          <p className="px-6 py-4 border-1 border-gray-200 text-xs">Reviews (122)</p>
+        </div>
+
+        <div className="border-1 p-6 border-gray-200">
+          <p className="text-xs">An e-commerce website is an online platform that facilitates the buying and selling of products or services over the internet. It serves as a virtual marketplace where businesses and individuals can showcase their products, interact with customers, and conduct transactions without the need for a physical presence. E-commerce websites have gained immense popularity due to their convenience, accessibility, and the global reach they offer.</p>
+          <br />
+          <p className="text-xs">E-commerce websites typically display products or services along with detailed descriptions, images, prices, and any available variations (e.g., sizes, colors). Each product usually has its own dedicated page with relevant information.</p>
+        </div>
+
+
+
+      </section>
+
+
+      {/* Related Product Section */}
+      <section>
+        <RelatedProducts category={productData.category} subCategroy={productData.subCategory}/>
+      </section>
+
 
     </div>
   ) : <div className="opacity-0"></div>
