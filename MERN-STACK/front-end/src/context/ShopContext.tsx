@@ -22,6 +22,7 @@ export type ShopContextType = {
 	username: string;
 	setUsername: (username: string) => void;
 	products: ProductType[];
+
 	currency: string;
 	deliveryFees: number;
 
@@ -31,8 +32,9 @@ export type ShopContextType = {
 	showSearch: boolean;
 	setShowSearch: (showSearch: boolean) => void;
 
-	addToCart: (itemId: number, size: string) => Promise<void>;
+	addToCart: (itemId: string, size: string) => Promise<void>;
 	cartItems: CartItemType;
+	getCartCount: () => number;
 };
 
 export const ShopContext = createContext<ShopContextType | undefined>(undefined);

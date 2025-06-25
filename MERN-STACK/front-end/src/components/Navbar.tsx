@@ -6,7 +6,7 @@ import { UseShopContext } from "../context/UseShopContext";
 const Navbar = () => {
 
 	const [visible, setVisible] = useState<boolean>(false);
-	const {showSearch,setShowSearch} = UseShopContext();
+	const {showSearch,setShowSearch, getCartCount} = UseShopContext();
 
 	return (
 		<header className="flex justify-between p-5">
@@ -56,7 +56,7 @@ const Navbar = () => {
 				<div className="relative">
 					<img src={assets.cart_icon} alt="search icon" className="w-5 cursor-pointer" />
 					<div className="absolute bg-black rounded-full w-4 h-4 right-[-5px] bottom-[-7px] text-white text-[9px] flex items-center justify-center p-2 leading-0">
-						<p>10</p>
+						<p>{getCartCount()}</p>
 					</div>
 				</div>
 
